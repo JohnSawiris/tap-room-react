@@ -9,7 +9,7 @@ function App() {
   return(
     <div className="container">
       <style global jsx>{`
-          @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700');
+          @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700|Ubuntu:400,500');
           * {
             box-sizing: border-box;
           }
