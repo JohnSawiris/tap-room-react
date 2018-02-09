@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const { resolve } = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 
@@ -7,7 +8,7 @@ module.exports = {
     'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
-    resolve(__dirname, 'src') + 'index.jsx'
+    resolve(__dirname, 'src') + '/index.jsx'
   ],
 
   output: {
@@ -48,6 +49,12 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin()
+    new webpack.NamedModulesPlugin(),
+    new HtmlWebpackPlugin({
+      template: 'template.ejs',
+      appMountId: 'react-container',
+      title: 'Tap Room',
+      filename: resolve(__dirname, 'build', 'index.html')
+    })
   ]
 };
