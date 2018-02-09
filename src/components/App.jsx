@@ -18,15 +18,21 @@ function App() {
             padding: 0;
             min-height: 100vh;
             font-family: 'Montserrat', sans-serif;
-            background-color: #eee;
-            color: #222;
+            background-color: #2e4453;
+            color: #eee;
           }
           .container {
             display: flex;
-            height: 100%;
             flex-direction: column;
             width: 80%;
             margin: auto;
+          }
+          @media (max-width: 950px) {
+            .container {
+              width: 100%;
+              padding: 1rem;
+              margin: 0;
+            }
           }
       `}</style>
       <Header />
