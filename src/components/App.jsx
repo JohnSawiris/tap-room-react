@@ -1,8 +1,14 @@
 import React from 'react';
 
+import Header from './Header';
+import KegList from './KegList';
+
 function App() {
   return(
-    <p>App works</p>
+    <div>
+      <Header />
+      <KegList />
+    </div>
   );
 }
 
