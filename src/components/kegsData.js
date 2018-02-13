@@ -1,3 +1,6 @@
+import pearl from '../assets/images/pearl.jpg';
+import baerlic from '../assets/images/baerlic.jpg';
+import alesong from '../assets/images/alesong.jpg';
 const kegs = [
   {
     name: '10 Barrel Baroque Pearl',
@@ -5,7 +8,8 @@ const kegs = [
     style: 'Hazy IPA',
     price: 15,
     alcoholConent: 6.4,
-    pints: 124
+    pints: 124,
+    img: pearl
   },
   {
     name:'Aleson Blending Dubbel',
@@ -13,7 +17,8 @@ const kegs = [
     style:'Belgian-Style Dubbel',
     price: 20,
     alcoholConent: 7.1,
-    pints:  124
+    pints:  124,
+    img: baerlic
   },
   {
     name: 'Baerlic Primeval',
@@ -21,7 +26,8 @@ const kegs = [
     style: 'Brown Ale',
     price:  35,
     alcoholConent:  6.8,
-    pints: 124
+    pints: 124,
+    img: alesong
   },
   {
     name:'Bend Darth Lager',
@@ -29,7 +35,8 @@ const kegs = [
     style:'Dark Lager',
     price: 56,
     alcoholConent: 5.0,
-    pints: 124
+    pints: 124,
+    img: pearl
   },
   {
     name: 'Boneyard Enzymatic',
@@ -37,7 +44,8 @@ const kegs = [
     style: 'IPA',
     price: 90,
     alcoholConent: 7.0,
-    pints: 124
+    pints: 124,
+    img: baerlic
   },
   {
     name: 'Locust Original Dry',
@@ -45,7 +53,8 @@ const kegs = [
     style: 'Common Cider',
     price: 200,
     alcoholConent: 6.0,
-    pints: 124
+    pints: 124,
+    img: alesong
   },
   {
     name: 'De La Senne Taras Boulba',
@@ -53,7 +62,8 @@ const kegs = [
     style: 'Belgian Pale Ale',
     price: 45,
     alcoholConent: 4.5,
-    pints: 124
+    pints: 124,
+    img: pearl
   },
   {
     name: 'Level And The Crowd Goes Mild',
@@ -61,7 +71,8 @@ const kegs = [
     style: 'Dark Mild',
     price: 90,
     alcoholConent: 4.5,
-    pints: 124
+    pints: 124,
+    img: baerlic
   }
 ];
 
