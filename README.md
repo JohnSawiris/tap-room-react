@@ -2,9 +2,8 @@
 
 This website allows user to view a list of kegs
 
-### Component Tree
-![Alt text](component-tree.png)
-
+### Components Tree
+![Alt text](components-tree.png)
 ### User Story
 
 #### User can view a list of kegs and check name, brand, price, alcohol content, amount left
