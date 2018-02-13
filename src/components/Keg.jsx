@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import pearl from '../assets/images/pearl.jpg';
+
 function Keg(props) {
   return(
     <div className="keg">
@@ -13,6 +15,8 @@ function Keg(props) {
       <style jsx>{`
         .keg {
           flex-grow: 1;
+          background-image: url(${pearl});
+          background-size: cover;
           flex-basis: 300px;
           width: 300px;
           height: 300px;
@@ -29,7 +33,7 @@ function Keg(props) {
         }
         .overlay {
           display: flex;
-          flex-direction: column;
+          flex-direction: column-reverse;
           padding: 1rem;
           position: absolute;
           top: 0;
@@ -42,6 +46,9 @@ function Keg(props) {
         }
         .overlay p {
           margin-top: .5rem;
+        }.btns-wrapper {
+          display: flex;
+          justify-content: space-between;
         }
         .btn {
           display: inline-block;
