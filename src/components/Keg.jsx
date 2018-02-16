@@ -11,12 +11,11 @@ function Keg(props) {
       <div className="overlay">
         <p>Brand: {props.brand}</p>
         <p>Price: ${props.price}</p>
-        <p>Style: ${props.style}</p>
         <p>Alcohol Content: {props.alcoholContent}%</p>
         <p>Pints Left: {props.pints}</p>
         <div className="btns-wrapper">
-          <button className="btn btn-blue">Pour a Pint</button>
-          <button className="btn btn-green">Pour a Growler</button>
+          <button className="btn btn-blue" onClick={() => {props.onPouringPint(props.id);}}>Pour a Pint</button>
+          <button className="btn btn-green" onClick={() => {props.onPouringGrowler(props.id);}}>Pour a Growler</button>
         </div>
       </div>
       <style jsx>{`
@@ -117,7 +116,8 @@ Keg.propTypes = {
   price: PropTypes.number,
   alcoholConent: PropTypes.number,
   pints: PropTypes.number,
-  onPouringPint: PropTypes.func
+  onPouringPint: PropTypes.func,
+  onPouringGrowler: PropTypes.func
 };
 
 export default Keg;

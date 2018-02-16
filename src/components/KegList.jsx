@@ -13,15 +13,31 @@ class KegList extends React.Component {
     };
     this.handleAddingKegToList = this.handleAddingKegToList.bind(this);
     this.handleToggleForm = this.handleToggleForm.bind(this);
+    this.handlePouringPint = this.handlePouringPint.bind(this);
+    this.handlePouringGrowler = this.handlePouringGrowler.bind(this);
   }//constructor
 
   handleAddingKegToList(newKeg) {
-    const copyKegsList = Object.assign({}, this.state.kegsList, {
+    let copyKegsList = Object.assign({}, this.state.kegsList, {
       [newKeg.id]: newKeg
     });
     this.setState({ kegsList: copyKegsList });
     this.handleToggleForm();
   }//handleAddingKegToList
+
+  handlePouringPint(kegId) {
+    let copyKegsList = Object.assign({}, this.state.kegsList);
+    copyKegsList[kegId].pints--;
+    this.setState({kegsList: copyKegsList});
+  }//handlePouringPint
+
+  handlePouringGrowler(kegId) {
+    let copyKegsList = Object.assign({}, this.state.kegsList);
+    copyKegsList[kegId].pints -= 2;
+    console.log(copyKegsList[kegId].pints);
+    
+    this.setState({kegsList: copyKegsList});
+  }//handlePouringGrowler
 
   handleToggleForm() {
     this.setState({ toggleDisplay: !this.state.toggleDisplay });
@@ -81,6 +97,8 @@ class KegList extends React.Component {
           {Object.keys(this.state.kegsList).map(function(kegId) {
             let keg = this.state.kegsList[kegId];
             return <Keg {...keg}
+              onPouringPint={this.handlePouringPint}
+              onPouringGrowler={this.handlePouringGrowler}
               key={kegId} />;
             
           }.bind(this))}
