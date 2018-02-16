@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { v4 } from 'uuid';
 
 function AddKeg(props) {
   let _name = null;
@@ -6,6 +8,7 @@ function AddKeg(props) {
   let _price = null;
   let _alcoholContent = null;
   let _pints = null;
+  let id = v4();
 
   function handleAddingKeg(event) {
     event.preventDefault();
@@ -14,9 +17,7 @@ function AddKeg(props) {
     const price = parseInt(_price.value);
     const alcoholContent = parseInt(_alcoholContent.value);
     const pints = parseInt(_pints.value);
-    console.log(alcoholContent);
-    console.log(pints);
-    props.onAddingKegToList({name, brand, price, alcoholContent, pints});
+    props.onAddingKegToList({name, brand, price, alcoholContent, pints, id});
     _name.value = '';
     _brand.value = '';
     _price.value = '';
@@ -90,5 +91,9 @@ function AddKeg(props) {
     </div>
   );
 }
+
+AddKeg.propTypes = {
+  onAddingKegToList: PropTypes.func  
+};
 
 export default AddKeg;

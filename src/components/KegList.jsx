@@ -1,7 +1,6 @@
 import React from 'react';
 import Keg from './Keg';
 import AddKeg from './AddKeg';
-
 import kegs from './kegsData';
 
 class KegList extends React.Component {
@@ -13,44 +12,59 @@ class KegList extends React.Component {
       toggleDisplay: false
     };
     this.handleAddingKegToList = this.handleAddingKegToList.bind(this);
-    this.handleShowingForm = this.handleShowingForm.bind(this);
-  }
+    this.handleToggleForm = this.handleToggleForm.bind(this);
+  }//constructor
 
   handleAddingKegToList(newKeg) {
-    const copyKegsList = this.state.kegsList.slice();
-    copyKegsList.push(newKeg);
+    const copyKegsList = Object.assign({}, this.state.kegsList, {
+      [newKeg.id]: newKeg
+    });
     this.setState({ kegsList: copyKegsList });
-  }
+    this.handleToggleForm();
+  }//handleAddingKegToList
 
-  handleShowingForm() {
+  handleToggleForm() {
     this.setState({ toggleDisplay: !this.state.toggleDisplay });
-  }
+  }//handleToggleForm
 
   render() {
+
     let toggleFormDisplay = null;
-    (this.state.toggleDisplay)? 
-      toggleFormDisplay = <AddKeg onAddingKegToList={this.handleAddingKegToList}/> :
+    (this.state.toggleDisplay) ? 
+      toggleFormDisplay = <AddKeg 
+        onAddingKegToList={this.handleAddingKegToList} 
+        onSubmitToggle={this.handleShowingForm}/> :
       toggleFormDisplay = null;
+
+    let toggleAddKegBtn = null;
+
+    (!this.state.toggleDisplay) ?
+      toggleAddKegBtn = <button className="add-keg" onClick={this.handleToggleForm} type="button">Add a keg</button> :
+      toggleAddKegBtn = null;
+
     return(
       <div className="kegs-wrap">
-        <button className="add-keg" onClick={this.handleShowingForm} type="button">Add a keg</button>
+        {toggleAddKegBtn}
         {toggleFormDisplay}
         <h1>Available Kegs</h1>
+        <style global jsx>{`
+          .add-keg {
+            padding: 0.8rem 0.9rem;
+            font-family: 'Ubuntu', sans-serif;
+            font-weight: 700;
+            border-radius: 10px;
+            outline: 0;
+            width: 20%;
+            cursor: pointer;
+            background-color: #00aadc;
+            border-color: #0087be;
+            color: #fff;
+          }
+        `}</style>
         <style jsx>{`
             .kegs-wrap {
               width: 100%;
               padding: 1rem;
-            }
-            .add-keg {
-              padding: 0.8rem 0.9rem;
-              font-family: 'Ubuntu', sans-serif;
-              font-weight: 700;
-              border-radius: 10px;
-              outline: 0;
-              width: 20%;
-              background-color: #00aadc;
-              border-color: #0087be;
-              color: #fff;
             }
             h1 {
               text-align: center;
@@ -59,19 +73,21 @@ class KegList extends React.Component {
               display: flex;
               width: 90%;
               margin: 2rem auto 0;
-              justify-content: space-between;
+              justify-content: space-around;
               flex-wrap: wrap;
             }
           `}</style>
         <div className="keg-list">
-          {this.state.kegsList.map((keg, i) =>
-            <Keg {...keg}
-              key={i}/>
-          )}
+          {Object.keys(this.state.kegsList).map(function(kegId) {
+            let keg = this.state.kegsList[kegId];
+            return <Keg {...keg}
+              key={kegId} />;
+            
+          }.bind(this))}
         </div>
       </div>
     );
-  }
+  }//render
 }
 
 export default KegList;

@@ -4,13 +4,6 @@ import PropTypes from 'prop-types';
 import baerlic from '../assets/images/baerlic.jpg';
 
 function Keg(props) {
- function pourPint() {
-   props.pints--;
- } 
-
- function pourGrowler() {
-  props.pints-2;
-  } 
 
   return(
     <div className="keg">
@@ -18,6 +11,7 @@ function Keg(props) {
       <div className="overlay">
         <p>Brand: {props.brand}</p>
         <p>Price: ${props.price}</p>
+        <p>Style: ${props.style}</p>
         <p>Alcohol Content: {props.alcoholContent}%</p>
         <p>Pints Left: {props.pints}</p>
         <div className="btns-wrapper">
@@ -34,7 +28,7 @@ function Keg(props) {
           background-size: 100% 300px;
           background-repeat: no-repeat;
           flex-basis: 300px;
-          width: 300px;
+          width: 300%;
           height: 300px;
           border: 1px solid #eee;
           border-radius: 5px;
@@ -122,7 +116,8 @@ Keg.propTypes = {
   style: PropTypes.string,
   price: PropTypes.number,
   alcoholConent: PropTypes.number,
-  pints: PropTypes.number
+  pints: PropTypes.number,
+  onPouringPint: PropTypes.func
 };
 
 export default Keg;
