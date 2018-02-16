@@ -1,14 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import baerlic from '../assets/images/baerlic.jpg';
+
 function Keg(props) {
+ function pourPint() {
+   props.pints--;
+ } 
+
+ function pourGrowler() {
+  props.pints-2;
+  } 
+
   return(
     <div className="keg">
+      <h4>{props.name}</h4>
       <div className="overlay">
-        <p>Name: {props.name}</p>
         <p>Brand: {props.brand}</p>
         <p>Price: ${props.price}</p>
-        <p>Alcohol Content: {props.alcoholConent}%</p>
+        <p>Alcohol Content: {props.alcoholContent}%</p>
         <p>Pints Left: {props.pints}</p>
         <div className="btns-wrapper">
           <button className="btn btn-blue">Pour a Pint</button>
@@ -18,7 +28,9 @@ function Keg(props) {
       <style jsx>{`
         .keg {
           flex-grow: 1;
-          background-image: url(${props.img});
+          color: #111;
+          text-align: center;
+          background-image: url(${baerlic});
           background-size: 100% 300px;
           background-repeat: no-repeat;
           flex-basis: 300px;
@@ -33,6 +45,11 @@ function Keg(props) {
           position: relative;
           transition: .4s cubic-bezier(0.4, 0, 1, 1);
         }
+        h4 {
+          background-color: rgba(255,255,255, 0.8);
+          padding: 0.5rem;
+          margin: 0.5rem;
+        }
         .keg:hover {
           background-size: 105% 320px;
         }
@@ -44,13 +61,15 @@ function Keg(props) {
           flex-direction: column;
           padding: 1rem;
           position: absolute;
+          text-align: left;
           top: 0;
+          color:  #fff;
           left: 0;
           opacity: 0;
           width: 100%;
           height: 100%;
           border-radius: 5px;
-          background-color: rgba(0,0,0, .7);
+          background-color: rgba(0,0,0, .9);
           transition: 0.6s ease-in-out;
         }
         .overlay p {

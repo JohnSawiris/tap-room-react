@@ -1,6 +1,29 @@
 import React from 'react';
 
-function AddKeg() {
+function AddKeg(props) {
+  let _name = null;
+  let _brand = null;
+  let _price = null;
+  let _alcoholContent = null;
+  let _pints = null;
+
+  function handleAddingKeg(event) {
+    event.preventDefault();
+    const name = _name.value;
+    const brand = _brand.value;
+    const price = parseInt(_price.value);
+    const alcoholContent = parseInt(_alcoholContent.value);
+    const pints = parseInt(_pints.value);
+    console.log(alcoholContent);
+    console.log(pints);
+    props.onAddingKegToList({name, brand, price, alcoholContent, pints});
+    _name.value = '';
+    _brand.value = '';
+    _price.value = '';
+    _alcoholContent.value = '';
+    _pints.value = '';
+  }
+
   return(
     <div>
       <style jsx>{`
@@ -41,26 +64,26 @@ function AddKeg() {
                     color: #fff;
                 }
             `}</style>
-      <form className="form-wrap">
+      <form className="form-wrap" onSubmit={handleAddingKeg}>
         <div className="form-group">
           <label className="form-control"label>Name</label>
-          <input className="form-control" type="text" name="name"/>
+          <input className="form-control" type="text" name="name" ref={(input) => { _name = input; }}/>
         </div>
         <div className="form-group">
           <label className="form-control">Brand</label>
-          <input className="form-control" type="text" name="brand"/>
+          <input className="form-control" type="text" name="brand" ref={(input) => { _brand = input; }}/>
         </div>
         <div className="form-group">
           <label className="form-control">Price</label>
-          <input className="form-control" type="text" name="price"/>
+          <input className="form-control" type="number" name="price" ref={(input) => { _price = input; }}/>
         </div>
         <div className="form-group">
           <label className="form-control">Alcohol Content</label>
-          <input className="form-control" type="text" name="alcohol content"/>
+          <input className="form-control" type="number" name="alcohol content" ref={(input) => { _alcoholContent = input; }}/>
         </div>
         <div className="form-group">
-          <label className="form-control">Pints Left</label>
-          <input className="form-control" type="text" name="amount left"/>
+          <label className="form-control">Amount</label>
+          <input className="form-control" type="number" name="amount left" ref={(input) => { _pints = input; }}/>
         </div>
         <button className="submit-btn" type="submit">Add Keg</button>
       </form>

@@ -28,11 +28,9 @@ class KegList extends React.Component {
 
   render() {
     let toggleFormDisplay = null;
-    if(this.state.toggleDisplay) {
-      toggleFormDisplay = <AddKeg />;
-    } else {
+    (this.state.toggleDisplay)? 
+      toggleFormDisplay = <AddKeg onAddingKegToList={this.handleAddingKegToList}/> :
       toggleFormDisplay = null;
-    }
     return(
       <div className="kegs-wrap">
         <button className="add-keg" onClick={this.handleShowingForm} type="button">Add a keg</button>
@@ -66,7 +64,7 @@ class KegList extends React.Component {
             }
           `}</style>
         <div className="keg-list">
-          {kegs.map((keg, i) =>
+          {this.state.kegsList.map((keg, i) =>
             <Keg {...keg}
               key={i}/>
           )}
