@@ -9,7 +9,11 @@ class KegList extends React.Component {
     super(props);
     this.state={
       kegsList: kegs,
-      toggleDisplay: false
+      toggleDisplay: false,
+      fadeStyles :{
+        opacity: 1,
+        transition: 'all 2s ease',
+      }
     };
     this.handleAddingKegToList = this.handleAddingKegToList.bind(this);
     this.handleToggleForm = this.handleToggleForm.bind(this);
@@ -22,7 +26,6 @@ class KegList extends React.Component {
       [newKeg.id]: newKeg
     });
     this.setState({ kegsList: copyKegsList });
-    this.handleToggleForm();
   }//handleAddingKegToList
 
   handlePouringPint(kegId) {
@@ -34,13 +37,12 @@ class KegList extends React.Component {
   handlePouringGrowler(kegId) {
     let copyKegsList = Object.assign({}, this.state.kegsList);
     copyKegsList[kegId].pints -= 2;
-    console.log(copyKegsList[kegId].pints);
-    
     this.setState({kegsList: copyKegsList});
   }//handlePouringGrowler
 
   handleToggleForm() {
-    this.setState({ toggleDisplay: !this.state.toggleDisplay });
+    let toggle = this.state.toggleDisplay;
+    this.setState({ toggleDisplay: !toggle });
   }//handleToggleForm
 
   render() {
@@ -48,8 +50,8 @@ class KegList extends React.Component {
     let toggleFormDisplay = null;
     (this.state.toggleDisplay) ? 
       toggleFormDisplay = <AddKeg 
-        onAddingKegToList={this.handleAddingKegToList} 
-        onSubmitToggle={this.handleShowingForm}/> :
+        onAddingKegToList={this.handleAddingKegToList}
+        toggle={this.handleToggleForm}/> :
       toggleFormDisplay = null;
 
     let toggleAddKegBtn = null;
@@ -59,7 +61,7 @@ class KegList extends React.Component {
       toggleAddKegBtn = null;
 
     return(
-      <div className="kegs-wrap">
+      <div className="kegs-wrap" style={this.state.fadeStyles}>
         {toggleAddKegBtn}
         {toggleFormDisplay}
         <h1>Available Kegs</h1>
