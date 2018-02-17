@@ -29,7 +29,7 @@ function Keg(props) {
           flex-basis: 300px;
           width: 300%;
           height: 300px;
-          border: 1px solid #eee;
+          border: 1px solid #bbb;
           border-radius: 5px;
           padding: 1.3rem;
           font-weight: 500;
@@ -93,7 +93,7 @@ function Keg(props) {
           background-color: #00aadc;
           border-color: #0087be;
         }
-        .btn:hover {
+        .btn-blue:hover {
           background-color: #0087be;
         }
         .btn-green {

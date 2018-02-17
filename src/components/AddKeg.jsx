@@ -42,7 +42,7 @@ function AddKeg(props) {
                     width: 80%;
                     margin: auto;
                     padding: 1rem;
-                    background-color: #eee;
+                    background-color: rgba(255,255,255, 0.95);
                     border-radius: 10px;
                     color: #111;
                 }
@@ -58,10 +58,14 @@ function AddKeg(props) {
                     margin-bottom: 0.4rem;
                 }
                 input.form-control {
-                    padding: 0.4rem 0.9rem;
+                    font-family: 'Ubuntu', sans-serif;
+                    padding: 0.6rem 0.9rem;
                     outline: 0;
                     border: 0;
+                    box-shadow: 0 2px 2px #333,
+                                2px 0 2px #333
                     border-radius: 5px;
+                    font-size: 1rem;
                 }
                 button.submit-btn {
                     display: inline-block;
@@ -76,17 +80,21 @@ function AddKeg(props) {
                     border-color: #19a8e2;
                     color: #fff;
                     letter-spacing: 1px;
+                    transition: 0.3s ease-in-out;
                 }
+                button.submit-btn:hover {
+                    background-color: #0087be;
+                  }
                 .close {
                     align-self: flex-end;
-                    box-shadow: 0 0 3px #333;
+                    box-shadow: 0 0 3px 1px #333;
                     border-radius: 2px;
-                    padding: 0.25rem;
+                    padding: 0.25rem 0.5rem;
                     font-size: 1.5rem;
                     font-weight: 700;
-                    margin-right: 1rem;
-                    color: #ce320a;
+                    color: #ff3400;
                     cursor: pointer;
+                    transition: 0.3s ease-in-out;
                 }
                 .close:active {
                     box-shadow: 0 0 1px #333;

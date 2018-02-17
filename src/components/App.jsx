@@ -18,7 +18,7 @@ function App() {
             padding: 0;
             min-height: 100vh;
             font-family: 'Montserrat', sans-serif;
-            background-color: #2e4453;
+            background-color: #222;
             color: #eee;
           }
           .container {

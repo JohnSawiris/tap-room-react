@@ -3,22 +3,17 @@ import { Link } from 'react-router-dom';
 
 function Header() {
   return(
-    <header className="head">
-
+    <header>
       <nav className="navbar">
         <Link className="links" to="/">Home</Link>
         <Link className="links" to="/kegs">Kegs</Link>
       </nav>
-
-
       <style global jsx>{`
-          .head {
-            border-bottom: 1px solid #eee;
-          }
           .navbar {
             display: flex;
             width: 100%;
             margin: auto;
+            border-bottom: 1px solid #aaa;
           }
           .links {
             text-decoration: none;
@@ -29,7 +24,7 @@ function Header() {
             transition: 0.4s ease-in;
           }
           .links:hover {
-            background-color: rgba(255,255,255, 0.5);
+            background-color: rgba(0,0,0, 0.2);
           }
       `}</style>
     </header>
