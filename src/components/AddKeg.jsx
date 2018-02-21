@@ -18,6 +18,7 @@ function AddKeg(props) {
     const alcoholContent = parseInt(_alcoholContent.value);
     const pints = parseInt(_pints.value);
     props.onAddingKegToList({name, brand, price, alcoholContent, pints, id});
+
     _name.value = '';
     _brand.value = '';
     _price.value = '';
@@ -27,7 +28,7 @@ function AddKeg(props) {
 
   return(
     <div className="form-container">
-        
+
       <style jsx>{`
                 .form-container {
                     position: absolute;
@@ -102,7 +103,7 @@ function AddKeg(props) {
             `}</style>
       <form className="form-wrap" onSubmit={handleAddingKeg}>
         <span className="close" onClick={props.toggle}>X</span>
-        <h1>Add a New Keg</h1> 
+        <h1>Add a New Keg</h1>
         <div className="form-group">
           <label className="form-control"label>Name</label>
           <input className="form-control" type="text" name="name" ref={(input) => { _name = input; }} required/>
@@ -123,7 +124,7 @@ function AddKeg(props) {
           <label className="form-control">Amount</label>
           <input className="form-control" type="number" name="amount left" ref={(input) => { _pints = input; }} required/>
         </div>
-        <button className="submit-btn" type="submit" onClick={props.toggle}>Add Keg</button>
+        <button className="submit-btn" type="submit">Add Keg</button>
       </form>
     </div>
   );

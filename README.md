@@ -9,7 +9,16 @@ This website allows user to view a list of kegs
 #### User can view a list of kegs and check name, brand, price, alcohol content, amount left
 
 * Input: User hover with their cursor
-* Output: Display name, brand, price, alcohol content, amount left
+* Output: Display name, brand, price, alcohol content, amount left.
+
+* Input: User clicks Pour a pint button
+* Output: A pint will be taken from Amount left.
+
+* Input: User clicks Pour a growler button
+* Output: A growler will be taken from Amount left.
+
+* Input: User clicks Add a Keg button
+* Output: A form will appear to user to fill out keg information and a keg will be added to the list.
 
 ## Setup
 ### Instructions:

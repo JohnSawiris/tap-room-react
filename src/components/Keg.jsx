@@ -12,7 +12,7 @@ function Keg(props) {
         <p>Brand: {props.brand}</p>
         <p>Price: ${props.price}</p>
         <p>Alcohol Content: {props.alcoholContent}%</p>
-        <p>Pints Left: {props.pints}</p>
+        <p>Amount Left: {props.pints}</p>
         <div className="btns-wrapper">
           <button className="btn btn-blue" onClick={() => {props.onPouringPint(props.id);}}>Pour a Pint</button>
           <button className="btn btn-green" onClick={() => {props.onPouringGrowler(props.id);}}>Pour a Growler</button>
@@ -27,7 +27,7 @@ function Keg(props) {
           background-size: 100% 300px;
           background-repeat: no-repeat;
           flex-basis: 300px;
-          width: 300%;
+          width: 300px;
           height: 300px;
           border: 1px solid #bbb;
           border-radius: 5px;

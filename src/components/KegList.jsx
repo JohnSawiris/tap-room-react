@@ -26,6 +26,7 @@ class KegList extends React.Component {
       [newKeg.id]: newKeg
     });
     this.setState({ kegsList: copyKegsList });
+    this.handleToggleForm();
   }//handleAddingKegToList
 
   handlePouringPint(kegId) {
@@ -48,8 +49,8 @@ class KegList extends React.Component {
   render() {
 
     let toggleFormDisplay = null;
-    (this.state.toggleDisplay) ? 
-      toggleFormDisplay = <AddKeg 
+    (this.state.toggleDisplay) ?
+      toggleFormDisplay = <AddKeg
         onAddingKegToList={this.handleAddingKegToList}
         toggle={this.handleToggleForm}/> :
       toggleFormDisplay = null;
@@ -102,7 +103,7 @@ class KegList extends React.Component {
               onPouringPint={this.handlePouringPint}
               onPouringGrowler={this.handlePouringGrowler}
               key={kegId} />;
-            
+
           }.bind(this))}
         </div>
       </div>
